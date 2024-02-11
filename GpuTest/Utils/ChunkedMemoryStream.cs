@@ -38,7 +38,7 @@ namespace GpuTest
         /// </summary>
         /// <param name="chunkSize">Size of the underlying chunks.</param>
         public ChunkedMemoryStream(int chunkSize)
-            : this(null)
+            : this(chunkSize, null)
         {
         }
 
@@ -57,7 +57,7 @@ namespace GpuTest
         /// <param name="chunkSize">Size of the underlying chunks.</param>
         /// <param name="buffer">The array of unsigned bytes from which to create the current stream.</param>
         public ChunkedMemoryStream(int chunkSize, byte[] buffer)
-            : base(new byte[0])
+            : base(new byte[0], 0, 0, false, false)
         {
             FreeOnDispose = true;
             ChunkSize = chunkSize;
@@ -412,9 +412,26 @@ namespace GpuTest
             return bytes;
         }
 
+        /// <summary>
+        /// Returns internal memory buffer if supported
+        /// Current realization does not support it
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
         public override byte[] GetBuffer()
         {
             throw new NotSupportedException();
+        }
+
+        /// <summary>
+        /// Tries to get internal memory buffer
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns>true if successful</returns>
+        public override bool TryGetBuffer(out ArraySegment<byte> buffer)
+        {
+            buffer = default;
+            return false;
         }
 
         /// <summary>
@@ -460,7 +477,7 @@ namespace GpuTest
         //     bytes written.
         //
         // Parameters:
-        //   buffer:
+        /// <param name="buffer"></param>
         public override void Write(ReadOnlySpan<byte> buffer)
         {
             CheckDisposed();
