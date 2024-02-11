@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GpuTest", "GpuTest\GpuTest.csproj", "{99650470-5882-416B-B6E3-1729DBF9887D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Debug|Any CPU.Build.0 = Debug|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Debug|x64.ActiveCfg = Debug|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Debug|x64.Build.0 = Debug|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|Any CPU.ActiveCfg = Release|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|x64.ActiveCfg = Release|x64
+		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0F1343C-8987-40B7-8FFA-3D643AE251B2}
+	EndGlobalSection
+EndGlobal
