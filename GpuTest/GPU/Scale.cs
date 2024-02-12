@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace GpuTest.GPU
 {
     /// <summary>
-    /// Downscaling filter (not yet completed)
+    /// Different scaling algorithms implementation
     /// </summary>
     public static class Scale
     {
@@ -23,7 +23,9 @@ namespace GpuTest.GPU
         /// <param name="scale"></param>
         public record struct DownscaleInfo(Size size, float scale);
 
-
+        /// <summary>
+        /// a struct to provide the data in and out of the downscale kernel
+        /// </summary>
         public struct DownscaleData
         {
             public readonly float downscaleFactor;
@@ -44,6 +46,9 @@ namespace GpuTest.GPU
 
         }
 
+        /// <summary>
+        /// a struct to provide the data in and out of the resample kernel
+        /// </summary>
         public struct ResampleData
         {
             public readonly CubicResampler resampler;
@@ -59,6 +64,11 @@ namespace GpuTest.GPU
             }
         }
 
+        /// <summary>
+        /// a struct to provide the data in and out of the interpolation kernel (cubic | bilinear)
+        /// scale factor is calculated inside the kernel dividing sizes of output by input
+        /// imitates Cuda Texture 
+        /// </summary>
         public struct Tex2Data
         {
             public readonly dImage<RGBA32> input;
@@ -81,6 +91,11 @@ namespace GpuTest.GPU
 
         #endregion
 
+        /// <summary>
+        /// Loads kernels (compiles them)
+        /// it takes some time, so it is better to do it separately
+        /// </summary>
+        /// <param name="device"></param>
         public static void WarmUp(Accelerator device)
         {
             _ = LoadKernel1(device);

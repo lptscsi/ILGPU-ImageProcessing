@@ -15,6 +15,7 @@ namespace GpuTest.GPU
 {
     /// <summary>
     /// Implementation for testing processing in different GPU streams with Bilateral filter
+    /// it uses small chunks of image for parallel processing
     /// </summary>
     public static class StreamsTest
     {

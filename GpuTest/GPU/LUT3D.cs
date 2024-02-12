@@ -17,6 +17,10 @@ namespace GpuTest.GPU
         const float EPS = 0.001f;
         private static Action<Index2D, Config> _kernel;
 
+        /// <summary>
+        /// struct to provide the data to the kernel for processing
+        /// (it must be struct - fields readonly)
+        /// </summary>
         public struct Config
         {
             public readonly int width;
@@ -28,6 +32,15 @@ namespace GpuTest.GPU
             public readonly dBuffer4D<float> lut;
             public readonly ArrayView2D<RGBA32, Stride2D.DenseX> output;
 
+            /// <summary>
+            /// constructor
+            /// </summary>
+            /// <param name="width"></param>
+            /// <param name="height"></param>
+            /// <param name="input"></param>
+            /// <param name="output"></param>
+            /// <param name="lut"></param>
+            /// <param name="lutSize"></param>
             public Config(int width, int height, ArrayView2D<RGBA32, Stride2D.DenseX> input, 
                 ArrayView2D<RGBA32, Stride2D.DenseX> output,
                 dBuffer4D<float> lut,
@@ -64,7 +77,10 @@ namespace GpuTest.GPU
 
         #endregion
 
-
+        /// <summary>
+        /// preloads kernel
+        /// </summary>
+        /// <param name="device"></param>
         public static void WarmUp(Accelerator device)
         {
             _ = LoadKernel(device);

@@ -3,7 +3,6 @@ using GpuTest.Utils.Color;
 using ILGPU;
 using ILGPU.Runtime;
 using System;
-using System.Drawing;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -12,7 +11,10 @@ using static GpuTest.Utils.Median81;
 
 namespace GpuTest.GPU
 {
-
+    /// <summary>
+    /// Median using LAB colorspace 
+    /// uses only a and b channels (the L channel is not modified)
+    /// </summary>
     public static class MedianLAB
     {
         private static Action<AcceleratorStream, KernelConfig, LABConfig> _labKernel;
