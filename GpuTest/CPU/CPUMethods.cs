@@ -110,8 +110,8 @@ namespace GpuTest.CPU
      
             using (MagickImage image = new MagickImage(imagePath))
             {
-                width = image.Width;
-                height = image.Height;
+                width = (int)image.Width;
+                height = (int)image.Height;
                 image.Depth = 8;
                 rgbBytes = image.ToByteArray(MagickFormat.Rgb);
             }

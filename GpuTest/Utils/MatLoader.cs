@@ -1,5 +1,6 @@
 ﻿using GpuTest;
 using GpuTest.Utils.Color;
+using ILGPU.Runtime;
 using ImageMagick;
 using System;
 using System.Buffers;
@@ -62,10 +63,10 @@ namespace OpenCvSharp
                     imageBytes,
                     new MagickReadSettings()
                     {
-                        Height = mat.Height,
-                        Width = mat.Width,
+                        Height = (uint)mat.Height,
+                        Width = (uint)mat.Width,
                         Format = magickFormat,
-                        Depth = depth
+                        Depth = (uint)depth
                     });
 
             return convertedImage;
@@ -103,7 +104,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_8UC4, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_8UC4, matArray);
             return mat;
         }
 
@@ -147,7 +148,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_8UC3, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_8UC3, matArray);
             return mat;
         }
 
@@ -183,7 +184,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_16UC4, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_16UC4, matArray);
             return mat;
         }
 
@@ -231,7 +232,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_16UC3, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_16UC3, matArray);
             return mat;
         }
 
@@ -324,7 +325,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_8UC1, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_8UC1, matArray);
             return mat;
         }
 
@@ -366,7 +367,7 @@ namespace OpenCvSharp
                 }
             });
 
-            Mat mat = new Mat(height, width, MatType.CV_16UC1, matArray);
+            Mat mat = Mat.FromPixelData(height, width, MatType.CV_16UC1, matArray);
             return mat;
         }
 
@@ -429,7 +430,7 @@ namespace OpenCvSharp
 
                 Buffer.BlockCopy(matArray, 0, bytes, 0, rowWidth * height);
 
-                var rgbImage = new MagickImage(bytes, new PixelReadSettings(width, height, StorageType.Char, "R"));
+                var rgbImage = new MagickImage(bytes, new PixelReadSettings((uint)width, (uint)height, StorageType.Char, "R"));
 
                 return rgbImage;
             }
@@ -459,7 +460,7 @@ namespace OpenCvSharp
 
                 Buffer.BlockCopy(matArray, 0, bytes, 0, rowWidth * height);
 
-                var rgbImage = new MagickImage(bytes, new PixelReadSettings(width, height, StorageType.Short, "R"));
+                var rgbImage = new MagickImage(bytes, new PixelReadSettings((uint)width, (uint)height, StorageType.Short, "R"));
 
                 return rgbImage;
             }
@@ -503,7 +504,7 @@ namespace OpenCvSharp
                     }
                 });
 
-                var rgbImage = new MagickImage(bytes, new PixelReadSettings(width, height, StorageType.Char, PixelMapping.RGB));
+                var rgbImage = new MagickImage(bytes, new PixelReadSettings((uint)width, (uint)height, StorageType.Char, PixelMapping.RGB));
 
                 return rgbImage;
             }
@@ -548,7 +549,7 @@ namespace OpenCvSharp
                     }
                 });
 
-                var rgbImage = new MagickImage(bytes, new PixelReadSettings(width, height, StorageType.Short, PixelMapping.RGB));
+                var rgbImage = new MagickImage(bytes, new PixelReadSettings((uint)width, (uint)height, StorageType.Short, PixelMapping.RGB));
 
                 return rgbImage;
             }

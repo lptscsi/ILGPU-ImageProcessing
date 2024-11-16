@@ -210,8 +210,8 @@ namespace GpuTest.CPU
             }
 
             int kernelSize = 1;
-            int VW = colorGains.Width;
-            int VH = colorGains.Height;
+            int VW = (int)colorGains.Width;
+            int VH = (int)colorGains.Height;
 
             int VW2 = RoundUpDivide(dstSize.Width, kernelSize);
             int VH2 = RoundUpDivide(dstSize.Height, kernelSize);

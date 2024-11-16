@@ -43,8 +43,8 @@ namespace GpuTest.GPU
      
             using (MagickImage image = new MagickImage(imagePath))
             {
-                width = image.Width;
-                height = image.Height;
+                width = (int)image.Width;
+                height = (int)image.Height;
                 image.Depth = 8;
 
                 Stopwatch sw1 = Stopwatch.StartNew();
@@ -94,7 +94,7 @@ namespace GpuTest.GPU
 
             byte[] bytes = await result.ToCPU(device.DefaultStream);
   
-            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings(result.Width, result.Height, StorageType.Char, PixelMapping.RGBA)))
+            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings((uint)result.Width, (uint)result.Height, StorageType.Char, PixelMapping.RGBA)))
             {
                 resImg.Write(resPath, MagickFormat.Jpeg);
             }
@@ -108,8 +108,8 @@ namespace GpuTest.GPU
 
             using (MagickImage image = new MagickImage(imagePath))
             {
-                width = image.Width;
-                height = image.Height;
+                width = (int)image.Width;
+                height = (int)image.Height;
                 image.Depth = 8;
 
                 Stopwatch sw1 = Stopwatch.StartNew();
@@ -149,8 +149,8 @@ namespace GpuTest.GPU
 
             using (MagickImage image = new MagickImage(imagePath))
             {
-                width = image.Width;
-                height = image.Height;
+                width = (int)image.Width;
+                height = (int)image.Height;
                 image.Depth = 8;
 
                 Stopwatch sw1 = Stopwatch.StartNew();
@@ -180,7 +180,7 @@ namespace GpuTest.GPU
             sw.Stop();
             Console.WriteLine($"ToCPU Time: {sw.ElapsedMilliseconds}");
 
-            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings(result.Width, result.Height, StorageType.Char, PixelMapping.RGBA)))
+            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings((uint)result.Width, (uint)result.Height, StorageType.Char, PixelMapping.RGBA)))
             {
                 resImg.Write(resPath, MagickFormat.Jpeg);
             }
@@ -200,8 +200,8 @@ namespace GpuTest.GPU
 
             using (MagickImage image = new MagickImage(imagePath))
             {
-                width = image.Width;
-                height = image.Height;
+                width = (int)image.Width;
+                height = (int)image.Height;
                 image.Depth = 8;
 
                 Stopwatch sw1 = Stopwatch.StartNew();
@@ -232,7 +232,7 @@ namespace GpuTest.GPU
 
             byte[] bytes = await result.ToCPU(device.DefaultStream);
 
-            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings(result.Width, result.Height, StorageType.Char, PixelMapping.RGBA)))
+            using (MagickImage resImg = new MagickImage(bytes, new PixelReadSettings((uint)result.Width, (uint)result.Height, StorageType.Char, PixelMapping.RGBA)))
             {
                 resImg.Write(resPath, MagickFormat.Jpeg);
             }
