@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GpuTest", "GpuTest\GpuTest.csproj", "{99650470-5882-416B-B6E3-1729DBF9887D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILGPU", "ILGPU\ILGPU.csproj", "{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILGPU.Algorithms", "ILGPU.Algorithms\ILGPU.Algorithms.csproj", "{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,22 @@ Global
 		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|Any CPU.ActiveCfg = Release|x64
 		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|x64.ActiveCfg = Release|x64
 		{99650470-5882-416B-B6E3-1729DBF9887D}.Release|x64.Build.0 = Release|x64
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Debug|x64.Build.0 = Debug|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Release|x64.ActiveCfg = Release|Any CPU
+		{5C86DE59-5A8B-AB9E-F6DA-C3C30E9262CF}.Release|x64.Build.0 = Release|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Debug|x64.Build.0 = Debug|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Release|x64.ActiveCfg = Release|Any CPU
+		{C5CCB7DD-4C6D-EB71-74BD-1B46E435021F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,7 @@ namespace GpuTest
             {
                 string dir = AppDomain.CurrentDomain.BaseDirectory;
                 string imgDir = @"c:\TEMP\";
-                string imgPath = Path.Combine(imgDir, "test.jpg");
+                string imgPath = Path.Combine(imgDir, "original.jpg");
                 string lutPath = Path.Combine(imgDir, "CrispAutumn.cube");
 
 

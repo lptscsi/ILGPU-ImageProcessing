@@ -60,7 +60,7 @@ namespace GpuTest.GPU
               
             Stopwatch sw = Stopwatch.StartNew();
 
-            //Bilateral.WarmUp(device);
+            Bilateral.WarmUp(device);
             //Median1.WarmUp(device);
             //Median2.WarmUp(device);
             //MedianAdaptive.WarmUp(device);
@@ -68,7 +68,7 @@ namespace GpuTest.GPU
             //ConvolutionFilter.WarmUp(device);
             //KNN.WarmUp(device);
             //Scale.WarmUp(device);
-            MedianLAB.WarmUp(device);
+            //MedianLAB.WarmUp(device);
 
             sw.Stop();
             Console.WriteLine($"LoadKernel Time: {sw.ElapsedMilliseconds}");
@@ -79,13 +79,13 @@ namespace GpuTest.GPU
             //using GPUImage<RGBA32> outputImage = await Median2.Execute(device, inputImage);
             //using GPUImage<RGBA32> outputImage = await GuidedFilter.Execute(device, inputImage, radius: 2, eps: 0.1f);
             //using GPUImage<RGBA32> outputImage = await MedianAdaptive.Execute(device, inputImage);
-            //using GPUImage<RGBA32> outputImage = await Bilateral.Execute1(device, inputImage, 5, 0.25f, 2f);
+            using GPUImage<RGBA32> outputImage = await Bilateral.Execute1(device, inputImage, 5, 0.25f, 2f);
             //using GPUImage<RGBA32> outputImage = await KNN.Execute(device, inputImage, 3);
             //using GPUImage<RGBA32> outputImage = await Scale.ExecuteDownScale(device, outputImage, downScaleFactor: 8.563f);
             //using GPUImage<RGBA32> outputImage = await Scale.ExecuteTex2D(device, inputImage, scaleFactor: 1.55f);
             //using GPUImage<RGBA32> outputImage = await Scale.ExecuteResample(device, inputImage, scaleFactor: 14.55f);
             //using GPUImage<RGBA32> outputImage = await ConvolutionFilter.Execute(device, FilterType.GaussianBlur, inputImage, 11, 2);
-            using GPUImage<RGBA32> outputImage = await MedianLAB.Execute(device, inputImage);
+            //using GPUImage<RGBA32> outputImage = await MedianLAB.Execute(device, inputImage);
 
             sw.Stop();
             Console.WriteLine($"Kernel Execution Time: {sw.ElapsedMilliseconds}");
