@@ -24,8 +24,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputPath>../../Bin/$(Configuration)/</OutputPath>
-    <DocumentationFile>../../Bin/$(Configuration)/$(TargetFramework)/ILGPU.xml</DocumentationFile>
+    <OutputPath>./Bin/$(Configuration)/</OutputPath>
+    <DocumentationFile>./Bin/$(Configuration)/$(TargetFramework)/ILGPU.xml</DocumentationFile>
     <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
